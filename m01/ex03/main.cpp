@@ -5,29 +5,17 @@
 /*                                                     +:+                    */
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 18:10:35 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 18:55:18 by novan-ve      ########   odam.nl         */
+/*   Created: 2020/09/30 18:14:28 by novan-ve      #+#    #+#                 */
+/*   Updated: 2020/09/30 18:14:34 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieEvent.hpp"
+#include "ZombieHorde.hpp"
 
 int main()
 {
-	ZombieEvent Apocalypse;
-	Zombie		stackZombie;
-	Zombie*		heapZombie;
+	ZombieHorde		horde(5);
 
-	stackZombie.setName( "Will" );
-	stackZombie.setType( "cool" );
-
-	Apocalypse.setZombieType( "chill" );
-	heapZombie = Apocalypse.randomChump();
-
-	stackZombie.announce();
-	heapZombie->announce();
-
-	delete heapZombie;
-
+	horde.announce();
 	return 0;
 }

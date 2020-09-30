@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   ZombieHorde.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 18:10:35 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 18:55:18 by novan-ve      ########   odam.nl         */
+/*   Created: 2020/09/30 18:15:03 by novan-ve      #+#    #+#                 */
+/*   Updated: 2020/09/30 18:15:04 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieEvent.hpp"
+#include "Zombie.hpp"
 
-int main()
+class	ZombieHorde
 {
-	ZombieEvent Apocalypse;
-	Zombie		stackZombie;
-	Zombie*		heapZombie;
+public:
 
-	stackZombie.setName( "Will" );
-	stackZombie.setType( "cool" );
+	ZombieHorde( int N );
+	~ZombieHorde();
 
-	Apocalypse.setZombieType( "chill" );
-	heapZombie = Apocalypse.randomChump();
+	void	announce();
 
-	stackZombie.announce();
-	heapZombie->announce();
+private:
+	Zombie*		_zombies;
+	int 		_nbZombies;
 
-	delete heapZombie;
-
-	return 0;
-}
+};
