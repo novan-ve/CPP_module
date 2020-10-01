@@ -3,33 +3,26 @@
 /*                                                        ::::::::            */
 /*   Human.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: novan-ve <marvin@codam.nl>                   +#+                     */
+/*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 20:39:33 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 21:04:58 by novan-ve      ########   odam.nl         */
+/*   Created: 2020/10/01 16:48:50 by novan-ve      #+#    #+#                 */
+/*   Updated: 2020/10/01 16:48:52 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMAN_HPP
 # define HUMAN_HPP
 
-# include "Brain.hpp"
 # include <string>
 
-class	Human
+class Human
 {
-
-public:
-
-	Human();
-	~Human();
-	const Brain&	getBrain();
-	std::string		identify();
-
 private:
-
-	const Brain	_myBrain;
-
+	void meleeAttack(std::string const & target);
+	void rangedAttack(std::string const & target);
+	void intimidatingShout(std::string const & target);
+public:
+	void action(std::string const & action_name, std::string const & target);
 };
 
 #endif

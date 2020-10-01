@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   HumanA.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: novan-ve <marvin@codam.nl>                   +#+                     */
+/*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 20:41:35 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 21:01:43 by novan-ve      ########   odam.nl         */
+/*   Created: 2020/10/01 13:47:20 by novan-ve      #+#    #+#                 */
+/*   Updated: 2020/10/01 13:47:20 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
-#include <iostream>
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-int main()
+# include "Weapon.hpp"
+# include <string>
+
+class HumanA
 {
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
-}
 
+public:
+
+	HumanA( std::string inputName, Weapon& inputWeapon );
+
+	void 	attack() const;
+
+private:
+
+	std::string	_name;
+	Weapon&		_weapon;
+
+};
+
+#endif

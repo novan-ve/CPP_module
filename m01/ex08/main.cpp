@@ -3,20 +3,20 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: novan-ve <marvin@codam.nl>                   +#+                     */
+/*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 20:41:35 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 21:01:43 by novan-ve      ########   odam.nl         */
+/*   Created: 2020/10/01 16:48:39 by novan-ve      #+#    #+#                 */
+/*   Updated: 2020/10/01 16:48:39 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Human.hpp"
-#include <iostream>
 
-int main()
+int 	main()
 {
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
-}
+	Human	Player;
 
+	Player.action("meleeAttack", "zombie");
+	Player.action("rangedAttack", "zombie");
+	Player.action("intimidatingShout", "zombie");
+}

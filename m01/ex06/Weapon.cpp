@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   Weapon.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: novan-ve <marvin@codam.nl>                   +#+                     */
+/*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 20:41:35 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 21:01:43 by novan-ve      ########   odam.nl         */
+/*   Created: 2020/10/01 13:46:48 by novan-ve      #+#    #+#                 */
+/*   Updated: 2020/10/01 13:46:49 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Human.hpp"
-#include <iostream>
+#include "Weapon.hpp"
 
-int main()
+Weapon::Weapon( std::string weapon ) : _type(weapon) {}
+
+std::string const &	Weapon::getType() const
 {
-	Human bob;
-	std::cout << bob.identify() << std::endl;
-	std::cout << bob.getBrain().identify() << std::endl;
+	return this->_type;
 }
 
+void 				Weapon::setType( std::string newType )
+{
+	this->_type = newType;
+}

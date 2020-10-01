@@ -10,4 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Human.hpp"
 
+Human::Human() {}
+
+Human::~Human() {}
+
+const Brain& Human::getBrain()
+{
+	return this->_myBrain;
+}
+
+std::string	Human::identify()
+{
+	return this->_myBrain.identify();
+}

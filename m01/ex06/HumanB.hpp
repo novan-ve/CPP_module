@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Brain.hpp                                          :+:    :+:            */
+/*   HumanB.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: novan-ve <marvin@codam.nl>                   +#+                     */
+/*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/09/30 20:39:11 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 21:01:27 by novan-ve      ########   odam.nl         */
+/*   Created: 2020/10/01 13:47:26 by novan-ve      #+#    #+#                 */
+/*   Updated: 2020/10/01 13:47:26 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
+# include "Weapon.hpp"
 # include <string>
 
-class	Brain {
+class HumanB
+{
 
 public:
-	
-	std::string	identify() const;
 
+	HumanB( std::string inputName );
+
+	void 	setWeapon( Weapon& inputWeapon );
+	void 	attack() const;
+
+private:
+
+	std::string _name;
+	Weapon*		_weapon;
 };
 
 #endif

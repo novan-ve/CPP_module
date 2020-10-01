@@ -11,8 +11,12 @@
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include <sstream>
 
-void*		Brain::identify() {
+std::string Brain::identify() const {
 
-	return this;
+	std::stringstream	strm;
+	strm << this;
+
+	return strm.str();
 }
