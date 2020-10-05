@@ -6,7 +6,7 @@
 /*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/01 15:27:44 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/01 15:27:46 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/05 13:50:43 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int 	main( int ac, char **av )
 	std::string 	file = av[1];
 	std::string 	toReplace = av[2];
 	std::string 	toReplaceWith = av[3];
-	std::string 	line;
+	std::string 	buffer;
+	std::string		line;
 
 	if ( !toReplace.length() )
 	{
@@ -46,22 +47,25 @@ int 	main( int ac, char **av )
 	std::ofstream 	newFile( file + ".replace" );
 
 	size_t 			pos;
+	size_t			check;
 
 	if ( newFile.good() )
 	{
-		while ( getline( oldFile, line ) )
+		while ( getline( oldFile, buffer ) )
+			line += buffer + "\n";
+		check = 0;
+		while ( true )
 		{
-			while ( true )
+			pos = line.find( toReplace, check );
+			if ( pos != std::string::npos )
 			{
-				pos = line.find( toReplace );
-				if ( pos != std::string::npos )
-					line.replace( pos, toReplace.length(), toReplaceWith );
-				else
-					break;
+				line.replace( pos, toReplace.length(), toReplaceWith );
+				check = pos + toReplaceWith.length();
 			}
-			newFile << line;
-			newFile << std::endl;
+			else
+				break;
 		}
+		newFile << line;
 	}
 	else
 		std::cout << "Error failed creating " << file << ".replace" << std::endl;
