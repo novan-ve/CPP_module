@@ -1,0 +1,9 @@
+Prefix notion (functional notation)
++( 1, 1 )
+1.+( 1 )
+
+Infix notation
+1 + 1
+
+Postfix notion
+1 1 +
