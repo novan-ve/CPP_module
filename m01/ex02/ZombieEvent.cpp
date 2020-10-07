@@ -6,7 +6,7 @@
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/30 18:12:34 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 18:57:01 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/03 13:11:25 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ Zombie* 	ZombieEvent::randomChump()
 
 	gettimeofday( &t, NULL );
 	srand( t.tv_usec );
-	randomName = {(char)(consonant[rand() % 20] - 32), vowel[rand() % 6], consonant[rand() % 20]};
+	randomName = (char)(consonant[rand() % 20] - 32);
+	randomName += (char)(vowel[rand() % 6]);
+	randomName += (char)(consonant[rand() % 20]);
 
 	return (ZombieEvent::newZombie( randomName ));
 }

@@ -6,7 +6,7 @@
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/30 18:10:35 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/09/30 18:55:18 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/03 13:12:26 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,23 @@ int main()
 	ZombieEvent Apocalypse;
 	Zombie		stackZombie;
 	Zombie*		heapZombie;
+	Zombie*		randomHeapZombie;
 
 	stackZombie.setName( "Will" );
 	stackZombie.setType( "cool" );
 
+	Apocalypse.setZombieType( "nice" );
+	heapZombie = Apocalypse.newZombie( "Ben" );
+
 	Apocalypse.setZombieType( "chill" );
-	heapZombie = Apocalypse.randomChump();
+	randomHeapZombie = Apocalypse.randomChump();
 
 	stackZombie.announce();
 	heapZombie->announce();
+	randomHeapZombie->announce();
 
 	delete heapZombie;
+	delete randomHeapZombie;
 
 	return 0;
 }

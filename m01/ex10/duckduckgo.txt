@@ -1,0 +1,4 @@
+DuckDuckGo is een zoekmachine die informatie van veelbezochte sites zoals Wikipedia gebruikt om traditionele internet-zoekresultaten te verbeteren. De zoekmachine beoogt een betere privacy voor gebruikers te geven en poogt ook vooringenomenheid te voorkomen. 
+Er wordt ook niet gekeken naar het zoekgedrag van de gebruiker. Elke gebruiker krijgt dezelfde zoekresultaten te zien voor dezelfde zoekopdracht.
+DuckDuckGo is opgericht door Gabriel Weinberg, een aan het MIT afgestudeerde ondernemer die DuckDuckGo in eerste instantie zelf financierde uit de opbrengst van een eerdere onderneming. De naam komt van Weinberg zelf, die dacht aan het spel Duck duck goose, de Amerikaanse variant van zakdoekje leggen.
+De broncode van DuckDuckGo staat gedeeltelijk op GitHub onder de Perl 5-licentie.
