@@ -16,9 +16,8 @@
 
 FragTrap::FragTrap( void ) {
 
-	std::cout << "FR4G-TP Anonymous has started bootup sequence" << std::endl;
+	std::cout << "FR4G-TP anonymous has started bootup sequence" << std::endl;
 
-	this->_name = "Anonymous";
 	this->_level = 1;
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
@@ -29,7 +28,7 @@ FragTrap::FragTrap( void ) {
 	this->_armorReduction = 5;
 }
 
-FragTrap::FragTrap( std::string const & newName ) : _name( newName ) {
+FragTrap::FragTrap( std::string const & newName ) : ClapTrap(newName) {
 
 	std::cout << "FR4G-TP " << newName << " has started bootup sequence" << std::endl;
 
@@ -94,33 +93,6 @@ void 	FragTrap::meleeAttack( const std::string & target ) {
 		std::cout << "FR4G-TP " << this->_name << " attacks " << target << " from up close, ";
 		std::cout << "causing " << this->_meleeDamage << " points of damage!" << std::endl;
 	}
-}
-
-void 	FragTrap::takeDamage( unsigned int amount ) {
-
-	if ( amount - this->_armorReduction >= this->_hitPoints ) {
-
-		this->_hitPoints = 0;
-		std::cout << "FR4G-TP " << this->_name << " has taken " << amount;
-		std::cout << " points of damage and has 0 HP left" << std::endl;
-	}
-	else {
-
-		this->_hitPoints -= (amount - this->_armorReduction);
-		std::cout << "FR4G-TP " << this->_name << " has taken " << amount;
-		std::cout << " points of damage and has " << this->_hitPoints << " HP left" << std::endl;
-	}
-}
-
-void 	FragTrap::beRepaired( unsigned int amount ) {
-
-	if ( amount + this->_hitPoints >= this->_maxHitPoints )
-		this->_hitPoints = this->_maxHitPoints;
-	else
-		this->_hitPoints += amount;
-
-	std::cout << "FR4G-TP " << this->_name << " has repaired " << amount;
-	std::cout << " points of HP and is at " << this->_hitPoints << " HP" << std::endl;
 }
 
 void 	FragTrap::vaulthunter_dot_exe( const std::string &target ) {

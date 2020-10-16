@@ -10,48 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include <iostream>
 #include <sys/time.h>
 
-FragTrap::FragTrap( void ) {
+ScavTrap::ScavTrap( void ) {
 
-	std::cout << "FR4G-TP Anonymous has started bootup sequence" << std::endl;
+	std::cout << "SC4F-TP Anonymous has blocked the entrance" << std::endl;
 
 	this->_name = "Anonymous";
 	this->_level = 1;
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
-	this->_energyPoints = 100;
-	this->_maxEnergyPoints = 100;
-	this->_meleeDamage = 30;
-	this->_rangedDamage = 20;
-	this->_armorReduction = 5;
+	this->_energyPoints = 50;
+	this->_maxEnergyPoints = 50;
+	this->_meleeDamage = 20;
+	this->_rangedDamage = 15;
+	this->_armorReduction = 3;
 }
 
-FragTrap::FragTrap( std::string const & newName ) : _name( newName ) {
+ScavTrap::ScavTrap( std::string const & newName ) : _name( newName ) {
 
-	std::cout << "FR4G-TP " << newName << " has started bootup sequence" << std::endl;
+	std::cout << "SC4F-TP " << newName << " has blocked the entrance" << std::endl;
 
 	this->_level = 1;
 	this->_hitPoints = 100;
 	this->_maxHitPoints = 100;
-	this->_energyPoints = 100;
-	this->_maxEnergyPoints = 100;
-	this->_meleeDamage = 30;
-	this->_rangedDamage = 20;
-	this->_armorReduction = 5;
+	this->_energyPoints = 50;
+	this->_maxEnergyPoints = 50;
+	this->_meleeDamage = 20;
+	this->_rangedDamage = 15;
+	this->_armorReduction = 3;
 }
 
-FragTrap::FragTrap( FragTrap const & src ) {
+ScavTrap::ScavTrap( ScavTrap const & src ) {
 
-	std::cout << "FR4G-TP " << src._name << " has been copied" << std::endl;
+	std::cout << "SC4F-TP " << src._name << " has been copied" << std::endl;
 	*this = src;
 }
 
-FragTrap &	FragTrap::operator=( FragTrap const & rhs ) {
+ScavTrap &	ScavTrap::operator=( ScavTrap const & rhs ) {
 
-	std::cout << "FR4G-TP " << this->_name << " has been assigned to " << rhs._name << std::endl;
+	std::cout << "SC4F-TP " << this->_name << " has been assigned to " << rhs._name << std::endl;
 
 	if ( this != &rhs ) {
 
@@ -69,74 +69,71 @@ FragTrap &	FragTrap::operator=( FragTrap const & rhs ) {
 	return *this;
 };
 
-FragTrap::~FragTrap( void ) {
+ScavTrap::~ScavTrap( void ) {
 
-	std::cout << "FR4G-TP " << this->_name << " has given up" << std::endl;
+	std::cout << "SC4F-TP " << this->_name << " unblocks the entrance" << std::endl;
 }
 
-void 	FragTrap::rangedAttack( const std::string & target ) {
+void 	ScavTrap::rangedAttack( const std::string & target ) {
 
 	if ( this->_hitPoints == 0 )
-		std::cout << "FR4G-TP " << this->_name << " has no HP left" << std::endl;
+		std::cout << "SC4F-TP " << this->_name << " has no HP left" << std::endl;
 	else {
 
-		std::cout << "FR4G-TP " << this->_name << " attacks " << target << " at range, ";
+		std::cout << "SC4F-TP " << this->_name << " attacks " << target << " at range, ";
 		std::cout << "causing " << this->_rangedDamage << " points of damage!" << std::endl;
 	}
 }
 
-void 	FragTrap::meleeAttack( const std::string & target ) {
+void 	ScavTrap::meleeAttack( const std::string & target ) {
 
 	if ( this->_hitPoints == 0 )
-		std::cout << "FR4G-TP " << this->_name << " has no HP left" << std::endl;
+		std::cout << "SC4F-TP " << this->_name << " has no HP left" << std::endl;
 	else {
 
-		std::cout << "FR4G-TP " << this->_name << " attacks " << target << " from up close, ";
+		std::cout << "SC4F-TP " << this->_name << " attacks " << target << " from up close, ";
 		std::cout << "causing " << this->_meleeDamage << " points of damage!" << std::endl;
 	}
 }
 
-void 	FragTrap::takeDamage( unsigned int amount ) {
+void 	ScavTrap::takeDamage( unsigned int amount ) {
 
 	if ( amount - this->_armorReduction >= this->_hitPoints ) {
 
 		this->_hitPoints = 0;
-		std::cout << "FR4G-TP " << this->_name << " has taken " << amount;
+		std::cout << "SC4F-TP " << this->_name << " has taken " << amount;
 		std::cout << " points of damage and has 0 HP left" << std::endl;
 	}
 	else {
 
 		this->_hitPoints -= (amount - this->_armorReduction);
-		std::cout << "FR4G-TP " << this->_name << " has taken " << amount;
+		std::cout << "SC4F-TP " << this->_name << " has taken " << amount;
 		std::cout << " points of damage and has " << this->_hitPoints << " HP left" << std::endl;
 	}
 }
 
-void 	FragTrap::beRepaired( unsigned int amount ) {
+void 	ScavTrap::beRepaired( unsigned int amount ) {
 
 	if ( amount + this->_hitPoints >= this->_maxHitPoints )
 		this->_hitPoints = this->_maxHitPoints;
 	else
 		this->_hitPoints += amount;
 
-	std::cout << "FR4G-TP " << this->_name << " has repaired " << amount;
+	std::cout << "SC4F-TP " << this->_name << " has repaired " << amount;
 	std::cout << " points of HP and is at " << this->_hitPoints << " HP" << std::endl;
 }
 
-void 	FragTrap::vaulthunter_dot_exe( const std::string &target ) {
+void 	ScavTrap::challengeNewcomer( void ) const {
 
 	timeval		t;
-	std::string attacks[] = { "missile strike", "clap-in-the-box", "torgue fiesta", "miniontrap", "one shot wonder"};
+	std::string challenges[] = { "You versus me! Me versus you! Either way!",
+							  "Dance battle! Or, you know... regular battle.",
+							  "Man versus machine! Very tiny streamlined machine!",
+							  "You wanna fight with me?! Put 'em up!.. Put 'em up?",
+							  "Care to have a friendly duel?"};
 
 	gettimeofday( &t, NULL );
 	srand( t.tv_usec );
 
-	if ( this->_energyPoints < 25 )
-		std::cout << "FR4G-TP " << this->_name << " is out of energy points" << std::endl;
-	else {
-
-		this->_energyPoints -= 25;
-		std::cout << "FR4G-TP " << this->_name << " attacks " << target << " with a " << attacks[rand() % 5];
-		std::cout << ", causing 50 points of damage" << std::endl;
-	}
+	std::cout << "SC4F-TP " << this->_name << " challenges you: " << challenges[rand() % 5] << std::endl;
 }

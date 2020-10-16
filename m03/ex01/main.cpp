@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int 	main( void ) {
 
@@ -40,6 +41,18 @@ int 	main( void ) {
 	a.vaulthunter_dot_exe( "two" );
 	b.takeDamage( 50 );
 	a.vaulthunter_dot_exe( "two" );
+
+	
+	ScavTrap	d( "three" );
+
+	a.meleeAttack( "three" );
+	d.takeDamage( 30 );
+
+	d.meleeAttack( "two" );
+	b.takeDamage( 20 );
+
+	d.challengeNewcomer();
+	d.challengeNewcomer();
 
 	return 0;
 }
