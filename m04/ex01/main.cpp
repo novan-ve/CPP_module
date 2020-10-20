@@ -10,8 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Character.hpp"
+#include "RadScorpion.hpp"
+#include "PlasmaRifle.hpp"
+#include "PowerFist.hpp"
+#include <iostream>
+
 int main()
 {
+	// ****************** Subject tests ******************
+
 	Character* me = new Character("me");
 
 	std::cout << *me;
@@ -33,6 +41,14 @@ int main()
 	std::cout << *me;
 	me->attack(b);
 	std::cout << *me;
+
+	delete b;
+	delete pr;
+	delete pf;
+	delete me;
+
+
+	// ****************** Own tests ******************
 
 	return 0;
 }

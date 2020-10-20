@@ -32,21 +32,23 @@ AWeapon &	AWeapon::operator=( AWeapon const & rhs ) {
 		this->_name = rhs.getName();
 	}
 	std::cout << "Weapon " << rhs.getName() << " has been assigned" << std::endl;
+
+	return *this;
 }
 
 AWeapon::~AWeapon() {}
 
-std::string 	AWeapon::getName() const {
+std::string const &	AWeapon::getName() const {
 
 	return this->_name;
 }
 
-int 			AWeapon::getAPCost() const {
+int 				AWeapon::getAPCost() const {
 
 	return this->_apcost;
 }
 
-int 			AWeapon::getDamage() const {
+int 				AWeapon::getDamage() const {
 
 	return this->_damage;
 }

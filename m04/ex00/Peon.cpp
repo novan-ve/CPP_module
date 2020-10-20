@@ -18,11 +18,9 @@ Peon::Peon( std::string const & name ) : Victim( name ) {
 	std::cout << "Zog zog." << std::endl;
 }
 
-Peon::Peon( Peon const & src ) : Victim( src.getName() ) {
+Peon::Peon( Peon const & src ) : Victim( src ) {
 
 	std::cout << "Peon " << src.getName() << " has been copied" << std::endl;
-
-	*this = src;
 }
 
 Peon &	Peon::operator=( Peon const & rhs ) {

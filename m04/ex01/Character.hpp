@@ -10,4 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
+# include "AWeapon.hpp"
+# include "Enemy.hpp"
+# include <string>
+
+class Character {
+
+private:
+
+	Character();
+
+	int 		_ap;
+	std::string _name;
+	AWeapon*	_weapon;
+
+public:
+
+	Character( std::string const & name );
+	Character( Character const & src );
+	Character &	operator=( Character const & rhs );
+	~Character();
+
+	void 	recoverAP();
+	void 	equip( AWeapon* );
+	void 	attack( Enemy* );
+
+	int 				getAP() const;
+	AWeapon *			getWeapon() const;
+	std::string const &	getName() const;
+
+};
+
+std::ostream &	operator<<( std::ostream & o, Character const & i );
+
+#endif
