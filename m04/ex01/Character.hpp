@@ -26,6 +26,7 @@ private:
 	int 		_ap;
 	std::string _name;
 	AWeapon*	_weapon;
+	Enemy*		_check;
 
 public:
 

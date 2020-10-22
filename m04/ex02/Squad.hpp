@@ -19,7 +19,7 @@ class Squad : public ISquad {
 
 private:
 
-	unsigned int 	_nbUnits;
+	int 			_nbUnits;
 	ISpaceMarine**	_marines;
 
 public:

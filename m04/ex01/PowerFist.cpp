@@ -22,13 +22,14 @@ PowerFist::PowerFist( PowerFist const & src ) : AWeapon( src ) {
 
 PowerFist &		PowerFist::operator=( PowerFist const & rhs ) {
 
-	if ( this != &rhs )
-	{
+	if ( this != &rhs ) {
+
 		this->_apcost = rhs.getAPCost();
 		this->_damage = rhs.getDamage();
 		this->_name = rhs.getName();
 	}
 	std::cout << "PowerFist " << rhs.getName() << " has been assigned" << std::endl;
+
 	return *this;
 }
 

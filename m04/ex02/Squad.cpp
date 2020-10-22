@@ -17,10 +17,10 @@ Squad::Squad() : _nbUnits( 0 ), _marines( 0 ) {}
 
 Squad::~Squad() {
 
-	for ( int i = this->_nbUnits; i > 0; i-- )
-		delete this->_marines[ i - 1 ];
-
-	delete [] this->_marines;
+	for ( int i = 0; i < this->_nbUnits; i++ )
+		delete this->_marines[ i ];
+	if ( this->_marines )
+		delete [] this->_marines;
 }
 
 Squad::Squad( Squad const & src ) {
@@ -43,7 +43,7 @@ Squad::Squad( Squad const & src ) {
 
 			std::cout << "Error: clone failed in Squad copy constructor" << std::endl;
 
-			for ( int j = i - 1; j >= 0; j-- )
+			for ( int j = 0; j < i; j++ )
 				delete this->_marines[ j ];
 			delete [] this->_marines;
 			this->_marines = 0;
@@ -60,8 +60,9 @@ Squad &	Squad::operator=( Squad const & rhs ) {
 		delete this->_marines[ this->_nbUnits - 1];
 		this->_nbUnits--;
 	}
-	delete [] this->_marines;
-
+	if ( this->_marines ) {
+		delete [] this->_marines;
+	}
 	this->_nbUnits = rhs.getCount();
 	this->_marines = new ( std::nothrow ) ISpaceMarine*[ this->_nbUnits ];
 
@@ -71,7 +72,6 @@ Squad &	Squad::operator=( Squad const & rhs ) {
 		this->_nbUnits = 0;
 		return *this;
 	}
-
 	for ( int i = 0; i < this->_nbUnits; i++ ) {
 
 		this->_marines[ i ] = rhs.getUnit( i )->clone();
@@ -80,7 +80,7 @@ Squad &	Squad::operator=( Squad const & rhs ) {
 
 			std::cout << "Error: clone failed in Squad Assignment" << std::endl;
 
-			for ( int j = i - 1; j >= 0; j-- )
+			for ( int j = 0; j < i; j++ )
 				delete this->_marines[ j ];
 			delete [] this->_marines;
 			this->_marines = 0;
@@ -88,6 +88,7 @@ Squad &	Squad::operator=( Squad const & rhs ) {
 			return *this;
 		}
 	}
+	std::cout << "Squad has been assigned" << std::endl;
 	return *this;
 }
 

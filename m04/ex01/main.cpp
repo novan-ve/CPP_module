@@ -42,13 +42,35 @@ int main()
 	me->attack(b);
 	std::cout << *me;
 
-	delete b;
 	delete pr;
 	delete pf;
 	delete me;
 
-
 	// ****************** Own tests ******************
+
+	std::cout << std::endl;
+
+	Character	one( "coplien_test" );
+	Character	two( one );
+	Character	three( "tmp" );
+
+	three = two;
+
+	std::cout << one << two << three;
+
+	RadScorpion		radOne;
+
+	std::cout << "Trying to attack unarmed" << std::endl;
+	two.attack( &radOne );
+	std::cout << "Attack does nothing ^" << std::endl;
+
+	PowerFist	pfOne;
+
+	three.equip( &pfOne );
+	std::cout << "Killing a stack enemy:" << std::endl;
+	three.attack( &radOne );
+	three.attack( &radOne );
+	std::cout << "End of tests" << std::endl;
 
 	return 0;
 }

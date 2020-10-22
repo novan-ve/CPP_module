@@ -13,7 +13,7 @@
 #include "Character.hpp"
 #include <iostream>
 
-Character::Character( std::string const & name ) : _ap( 40 ), _name( name ) {}
+Character::Character( std::string const & name ) : _ap( 40 ), _name( name ), _weapon( 0 ) {}
 
 Character::Character( Character const & src ) {
 
@@ -59,8 +59,10 @@ void 				Character::attack( Enemy * target ) {
 		target->takeDamage(this->_weapon->getDamage());
 		this->_ap -= this->_weapon->getAPCost();
 
-		if ( target->getHP() == 0 )
+		if ( target->getHP() == 0 && &this->_check < &target ) {
+
 			delete target;
+		}
 	}
 }
 

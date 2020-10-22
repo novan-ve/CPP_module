@@ -32,7 +32,7 @@ public:
 	AWeapon( std::string const & name, int apcost, int damage );
 	AWeapon( AWeapon const & src );
 	AWeapon &	operator=( AWeapon const & rhs );
-	~AWeapon();
+	virtual ~AWeapon();
 
 	std::string const &	getName() const;
 	int 				getAPCost() const;
