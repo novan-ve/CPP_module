@@ -19,5 +19,30 @@ Ice::Ice( const Ice & src ) : AMateria( src ) {}
 
 Ice &	Ice::operator=( Ice const & rhs ) {
 
-	
+	if ( this != &rhs )
+		this->_xp = rhs.getXP();
+
+	std::cout << "Ice has been assigned" << std::endl;
+
+	return *this;
+}
+
+Ice::~Ice() {}
+
+AMateria*	Ice::clone() const {
+
+	Ice			tmpIce;
+	tmpIce._xp = this->_xp;
+
+	AMateria*	tmpMat = new Ice( tmpIce );
+
+	return tmpMat;
+}
+
+void 		Ice::use( ICharacter & target ) {
+
+	std::cout << "* shoots an ice bolt at ";
+	AMateria::use( target );
+	std::cout << " *" << std::endl;
+
 }

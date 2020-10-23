@@ -57,7 +57,7 @@ Squad &	Squad::operator=( Squad const & rhs ) {
 
 	while ( this->_nbUnits > 0 ) {
 
-		delete this->_marines[ this->_nbUnits - 1];
+		delete this->_marines[ this->_nbUnits - 1 ];
 		this->_nbUnits--;
 	}
 	if ( this->_marines ) {

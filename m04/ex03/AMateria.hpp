@@ -16,14 +16,15 @@
 # include <string>
 # include "ICharacter.hpp"
 
-class AMateria
-{
+class AMateria {
 
 private:
 
 	AMateria();
-
 	std::string		_type;
+
+protected:
+
 	unsigned int	_xp;
 
 public:

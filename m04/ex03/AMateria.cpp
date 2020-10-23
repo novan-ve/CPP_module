@@ -46,5 +46,6 @@ unsigned int 		AMateria::getXP() const {
 
 void 				AMateria::use( ICharacter & target ) {
 
+	std::cout << target.getName();
 	this->_xp += 10;
 }
