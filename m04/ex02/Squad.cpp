@@ -60,9 +60,9 @@ Squad &	Squad::operator=( Squad const & rhs ) {
 		delete this->_marines[ this->_nbUnits - 1 ];
 		this->_nbUnits--;
 	}
-	if ( this->_marines ) {
+	if ( this->_marines )
 		delete [] this->_marines;
-	}
+
 	this->_nbUnits = rhs.getCount();
 	this->_marines = new ( std::nothrow ) ISpaceMarine*[ this->_nbUnits ];
 

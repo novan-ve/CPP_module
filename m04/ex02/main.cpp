@@ -43,6 +43,8 @@ int main()
 	ISpaceMarine*	john = new AssaultTerminator;
 
 	own->push( john->clone() );
+
+	// Wrong values
 	own->push( 0 );
 	own->push( own->getUnit( 0 ) );
 
@@ -59,9 +61,11 @@ int main()
 
 	std::cout << "Members in Squad: " << own->getCount()	<< std::endl;
 	std::cout << "Members in Squad: " << own->push( jimbo ) << std::endl;
+	// Wrong values, number of members shouldn't change
 	std::cout << "Members in Squad: " << own->push( 0 )		<< std::endl;
 	std::cout << "Members in Squad: " << own->push( jimbo ) << std::endl;
 
+	// Deep copy test
 	Squad*		own2 = new Squad;
 
 	*own2 = *own;

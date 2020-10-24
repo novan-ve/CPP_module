@@ -22,8 +22,6 @@ Ice &	Ice::operator=( Ice const & rhs ) {
 	if ( this != &rhs )
 		this->_xp = rhs.getXP();
 
-	std::cout << "Ice has been assigned" << std::endl;
-
 	return *this;
 }
 
@@ -34,7 +32,7 @@ AMateria*	Ice::clone() const {
 	Ice			tmpIce;
 	tmpIce._xp = this->_xp;
 
-	AMateria*	tmpMat = new Ice( tmpIce );
+	AMateria*	tmpMat = new ( std::nothrow ) Ice( tmpIce );
 
 	return tmpMat;
 }

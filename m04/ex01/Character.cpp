@@ -59,7 +59,7 @@ void 				Character::attack( Enemy * target ) {
 		target->takeDamage(this->_weapon->getDamage());
 		this->_ap -= this->_weapon->getAPCost();
 
-		if ( target->getHP() == 0 && &this->_check < &target ) {
+		if ( target->getHP() == 0 ) {
 
 			delete target;
 		}

@@ -31,6 +31,15 @@ void 	otherTests( void )
 	e = c;
 
 	std::cout << c << d << e << std::endl;
+
+	Sorcerer	jim("Jim", "the Beast");
+	Sorcerer	jim2( jim );
+	Sorcerer	jim3( "Bob", "the Glorious");
+	jim3 = jim;
+
+	std::cout << "jim: " << jim.getName() << " " << jim.getTitle() << std::endl;
+	std::cout << "jim2: " << jim2.getName() << " " << jim2.getTitle() << std::endl;
+	std::cout << "jim3: " << jim3.getName() << " " << jim3.getTitle() << std::endl;
 }
 
 int main()

@@ -18,7 +18,6 @@ AMateria::AMateria( std::string const & type ) : _type( type ), _xp( 0 ) {}
 AMateria::AMateria( AMateria const & src ) {
 
 	*this = src;
-	std::cout << "AMateria has been copied" << std::endl;
 }
 
 AMateria &	AMateria::operator=( AMateria const & rhs ) {

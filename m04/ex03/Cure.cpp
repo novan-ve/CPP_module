@@ -22,8 +22,6 @@ Cure &	Cure::operator=( Cure const & rhs ) {
 	if ( this != &rhs )
 		this->_xp = rhs.getXP();
 
-	std::cout << "Cure has been assigned" << std::endl;
-
 	return *this;
 }
 
@@ -34,7 +32,7 @@ AMateria*	Cure::clone() const {
 	Cure		tmpCure;
 	tmpCure._xp = this->_xp;
 
-	AMateria*	tmpMat = new Cure( tmpCure );
+	AMateria*	tmpMat = new ( std::nothrow ) Cure( tmpCure );
 
 	return tmpMat;
 }

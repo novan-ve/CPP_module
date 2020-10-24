@@ -12,6 +12,7 @@
 
 #include "Character.hpp"
 #include "RadScorpion.hpp"
+#include "SuperMutant.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"
 #include <iostream>
@@ -58,19 +59,52 @@ int main()
 
 	std::cout << one << two << three;
 
-	RadScorpion		radOne;
+	RadScorpion		*radOne = new RadScorpion();
 
-	std::cout << "Trying to attack unarmed" << std::endl;
-	two.attack( &radOne );
+	std::cout << "Trying to attack unarmed:" << std::endl;
+	two.attack( radOne );
+	std::cout << "Attack does nothing ^" << std::endl;
+	std::cout << "Trying to attack NULL:" << std::endl;
+	two.attack( NULL );
 	std::cout << "Attack does nothing ^" << std::endl;
 
-	PowerFist	pfOne;
+	// Coplien tests
+	std::cout << std::endl << "Coplien tests" << std::endl;
+	one.attack( radOne );
 
-	three.equip( &pfOne );
-	std::cout << "Killing a stack enemy:" << std::endl;
-	three.attack( &radOne );
-	three.attack( &radOne );
-	std::cout << "End of tests" << std::endl;
+	std::cout << "radOne health: " << radOne->getHP() << std::endl;
+
+	RadScorpion		*radTwo = new RadScorpion( *radOne );
+	RadScorpion		*radThree = new RadScorpion();
+	*radThree = *radOne;
+
+	delete radOne;
+
+	std::cout << "radTwo health: " << radTwo->getHP() << std::endl;
+	std::cout << "radThree health: " << radThree->getHP() << std::endl;
+
+	delete radTwo;
+	delete radThree;
+
+	std::cout << std::endl;
+
+	SuperMutant		*mutOne = new SuperMutant;
+
+	one.attack( mutOne );
+
+	std::cout << "mutOne health: " << mutOne->getHP() << std::endl;
+
+	SuperMutant		*mutTwo = new SuperMutant( *mutOne );
+	SuperMutant		*mutThree = new SuperMutant();
+	*mutThree = *mutTwo;
+
+	delete mutOne;
+
+	std::cout << "mutTwo health: " << mutTwo->getHP() << std::endl;
+	std::cout << "mutThree health: " << mutThree->getHP() << std::endl;
+
+	delete mutTwo;
+	delete mutThree;
 
 	return 0;
 }

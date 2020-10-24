@@ -21,8 +21,7 @@ private:
 
 	Character();
 
-	AMateria**	_slots;
-	int 		_used;
+	AMateria*	_slots[4];
 	std::string _name;
 
 public:
