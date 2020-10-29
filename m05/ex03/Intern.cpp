@@ -6,7 +6,7 @@
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/28 17:52:39 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/28 17:52:40 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/29 13:58:02 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ Form *		Intern::makeForm( std::string const & className, std::string const & tar
 		}
 	}
 	std::cout << "Requested form not known" << std::endl;
+	for ( int i = 0; i < 3; i++ )
+		delete forms[i];
 
 	return NULL;
 }

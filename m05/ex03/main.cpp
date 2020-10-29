@@ -6,7 +6,7 @@
 /*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/25 13:26:11 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/25 13:26:12 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/29 13:58:21 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int 	main() {
 
 	if ( rrf == NULL )
 		std::cout << "Unknown form returned NULL" << std::endl;
-
+	
 	return 0;
 }
