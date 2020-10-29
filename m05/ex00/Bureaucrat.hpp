@@ -6,7 +6,7 @@
 /*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/25 13:25:54 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/25 13:25:55 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/29 12:49:40 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	GradeTooHighException();
 	GradeTooHighException( GradeTooHighException const & src );
 	GradeTooHighException &	operator=( GradeTooHighException const & rhs );
-	virtual ~GradeTooHighException ();
+	virtual ~GradeTooHighException() throw ();
 
 	virtual const char * what () const throw ();
 
@@ -47,7 +47,7 @@ public:
 	GradeTooLowException();
 	GradeTooLowException( GradeTooLowException const & src );
 	GradeTooLowException &	operator=( GradeTooLowException const & rhs );
-	virtual ~GradeTooLowException();
+	virtual ~GradeTooLowException() throw () ;
 
 	virtual const char * what () const throw ();
 

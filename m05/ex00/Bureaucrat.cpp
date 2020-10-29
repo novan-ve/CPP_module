@@ -6,7 +6,7 @@
 /*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/25 13:25:59 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/25 13:26:04 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/29 12:49:12 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ Bureaucrat::GradeTooHighException &	Bureaucrat::GradeTooHighException::operator=
 	return *this;
 }
 
-Bureaucrat::GradeTooHighException::~GradeTooHighException() {}
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw () {}
 
 const char * Bureaucrat::GradeTooHighException::what() const throw() {
 
@@ -109,7 +109,7 @@ Bureaucrat::GradeTooLowException &	Bureaucrat::GradeTooLowException::operator=(c
 	return *this;
 }
 
-Bureaucrat::GradeTooLowException::~GradeTooLowException() {}
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {}
 
 const char * Bureaucrat::GradeTooLowException::what() const throw() {
 
