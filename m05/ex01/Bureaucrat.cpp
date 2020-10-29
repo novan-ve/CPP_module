@@ -100,7 +100,7 @@ Bureaucrat::GradeTooHighException &	Bureaucrat::GradeTooHighException::operator=
 	return *this;
 }
 
-Bureaucrat::GradeTooHighException::~GradeTooHighException() {}
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw () {}
 
 const char * Bureaucrat::GradeTooHighException::what() const throw() {
 
@@ -120,7 +120,7 @@ Bureaucrat::GradeTooLowException &	Bureaucrat::GradeTooLowException::operator=(c
 	return *this;
 }
 
-Bureaucrat::GradeTooLowException::~GradeTooLowException() {}
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw () {}
 
 const char * Bureaucrat::GradeTooLowException::what() const throw() {
 

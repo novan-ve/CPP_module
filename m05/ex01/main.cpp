@@ -70,7 +70,6 @@ int 	main() {
 		Form		declaration( "Declaration", 100, 150 );
 
 		hermes.signForm( declaration );
-		std::cout << std::endl;
 	}
 	catch ( std::exception & e ) {
 		std::cout << e.what() << std::endl;

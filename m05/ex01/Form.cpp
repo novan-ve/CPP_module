@@ -94,7 +94,7 @@ Form::GradeTooHighException &	Form::GradeTooHighException::operator=(const Grade
 	return *this;
 }
 
-Form::GradeTooHighException::~GradeTooHighException() {}
+Form::GradeTooHighException::~GradeTooHighException() throw () {}
 
 const char * Form::GradeTooHighException::what() const throw() {
 
@@ -114,7 +114,7 @@ Form::GradeTooLowException &	Form::GradeTooLowException::operator=(const GradeTo
 	return *this;
 }
 
-Form::GradeTooLowException::~GradeTooLowException() {}
+Form::GradeTooLowException::~GradeTooLowException() throw () {}
 
 const char * Form::GradeTooLowException::what() const throw() {
 

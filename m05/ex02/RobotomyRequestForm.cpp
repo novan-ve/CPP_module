@@ -13,6 +13,7 @@
 #include "RobotomyRequestForm.hpp"
 #include <iostream>
 #include <sys/time.h>
+#include <stdlib.h>
 
 RobotomyRequestForm::RobotomyRequestForm( std::string const & target ) :
 		Form( "robotomy request", 72, 45 ) {

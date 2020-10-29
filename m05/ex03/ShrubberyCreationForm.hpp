@@ -31,7 +31,7 @@ public:
 		FileFailedException();
 		FileFailedException( FileFailedException const & src );
 		FileFailedException & operator=( FileFailedException const & rhs );
-		virtual ~FileFailedException();
+		virtual ~FileFailedException() throw ();
 
 		virtual const char * what () const throw ();
 

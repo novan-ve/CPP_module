@@ -40,7 +40,8 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 
 	Form::execute( executor );
 
-	std::ofstream 	file( this->getTarget() + "_shrubbery" );
+	const char	*fileName = ( this->getTarget() + "_shrubbery" ).c_str();
+	std::ofstream 	file( fileName );
 
 	if ( !file.good() )
 		throw ShrubberyCreationForm::FileFailedException();
@@ -86,7 +87,7 @@ ShrubberyCreationForm::FileFailedException &	ShrubberyCreationForm::FileFailedEx
 	return *this;
 }
 
-ShrubberyCreationForm::FileFailedException::~FileFailedException() {}
+ShrubberyCreationForm::FileFailedException::~FileFailedException() throw () {}
 
 const char * ShrubberyCreationForm::FileFailedException::what() const throw() {
 
