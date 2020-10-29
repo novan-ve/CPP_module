@@ -13,8 +13,11 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# include "Form.hpp"
 # include <stdexcept>
 # include <string>
+
+class Form;
 
 class Bureaucrat {
 
@@ -63,6 +66,8 @@ public:
 
 	void 				increment();
 	void 				decrement();
+
+	void 				signForm( Form & i );
 
 };
 

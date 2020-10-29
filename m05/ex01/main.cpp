@@ -17,10 +17,15 @@ int 	main() {
 
 	// ******************** Coplien ********************
 	try {
-		Bureaucrat coplien( "Coplien_test", 100 );
-		Bureaucrat coplien2( coplien );
-		Bureaucrat coplien3( "Coplien_test", 120 );
+		Bureaucrat	coplientest( "Coplien_bureaucrat", 100 );
+		Form		coplien( "Coplien_form", 120, 120 );
 
+		std::cout << coplien << std::endl;
+
+		coplientest.signForm( coplien );
+
+		Form		coplien2( coplien );
+		Form		coplien3( "Coplien_form", 120, 120 );
 		coplien3 = coplien;
 
 		std::cout << coplien << std::endl;
@@ -31,31 +36,9 @@ int 	main() {
 		std::cout << e.what() << std::endl;
 	}
 
-	// ********** Valid grade, decrement to invalid **********
-	try {
-
-		Bureaucrat	hermes( "Hermes", 150 );
-		std::cout << hermes << std::endl;
-		hermes.decrement();
-	}
-	catch ( std::exception & e ) {
-		std::cout << e.what() << std::endl << std::endl;
-	}
-
-	// ********** Valid grade, increment to invalid **********
-	try {
-
-		Bureaucrat	hermes( "Hermes", 1 );
-		std::cout << hermes << std::endl;
-		hermes.increment();
-	}
-	catch ( std::exception & e ) {
-		std::cout << e.what() << std::endl << std::endl;
-	}
-
 	// ******************** Grade too low ********************
 	try {
-		Bureaucrat	hermes( "Hermes", 151 );
+		Form	declaration( "Declaration", 155, 100 );
 	}
 	catch ( std::exception & e ) {
 		std::cout << e.what() << std::endl << std::endl;
@@ -63,7 +46,31 @@ int 	main() {
 
 	// ******************** Grade too high ********************
 	try {
-		Bureaucrat	hermes( "Hermes", 0 );
+		Form	declaration( "Declaration", 100, 0 );
+	}
+	catch ( std::exception & e ) {
+		std::cout << e.what() << std::endl << std::endl;
+	}
+
+	// ******************** Valid ********************
+	try {
+		Bureaucrat	hermes( "Hermes", 120 );
+		Form		declaration( "Declaration", 120, 120 );
+
+		hermes.signForm( declaration );
+		std::cout << std::endl;
+	}
+	catch ( std::exception & e ) {
+		std::cout << e.what() << std::endl;
+	}
+
+	// ******************** Bureaucrat too low ********************
+	try {
+		Bureaucrat	hermes( "Hermes", 120 );
+		Form		declaration( "Declaration", 100, 150 );
+
+		hermes.signForm( declaration );
+		std::cout << std::endl;
 	}
 	catch ( std::exception & e ) {
 		std::cout << e.what() << std::endl;
