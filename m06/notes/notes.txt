@@ -1,0 +1,225 @@
+// -----------------+-----------+-----------+-----------+----------+---------------- //
+//		Cast		|	Conv.	|	Reint.	|	Upcast	| Downcast |	Type equal.	 //
+// -----------------+-----------+-----------+-----------+----------+---------------- //
+// Implicit			|	 Yes	|			|	 Yes	|		   |				 //
+// static_cast		|	 Yes	|			|	 Yes	|	Yes	   |	   			 //
+// dynamic_cast		|			|			|	 Yes	|	Yes	   |				 //
+// const_cast		|			|			|			|		   |	   Yes		 //
+// reinterpret_cast	|			|	 Yes	|	 Yes	|	Yes	   |				 //
+// -----------------+-----------+-----------+-----------+----------+---------------- //
+// Legacy C cast	|	 Yes	|	 Yes	|	 Yes	|	Yes	   |	   Yes		 //
+// -----------------+-----------+-----------+-----------+----------+---------------- //
+
+
+// -----------------+-------------------+-------------------+----------------------- //
+//		Cast		|	Semantic check	|	Reliable at run	|	Tested at runtime	 //
+// -----------------+-------------------+-------------------+----------------------- //
+// Implicit			|		Yes			|		Yes			|						 //
+// static_cast		|		Yes			|					|						 //
+// dynamic cast		|		Yes			|		Yes			|		   Yes			 //
+// const_cast		|					|					|						 //
+// reinterpret_cast	|					|					|						 //
+// -----------------+-------------------+-------------------+----------------------- //
+// Legacy C cast	|					|					|						 //
+// -----------------+-------------------+-------------------+----------------------- //
+
+
+----------------
+
+C Type Conversion:
+
+int		a = 42;
+
+double	b = a;			// Implicit conversion cast
+double	c = (double)a;	// Implicit conversion cast
+
+double	d = a;			// Implicit promotion -> Ok
+int		e = d;			// Implicit demotion -> Hazardeous !
+int		f = (int) d;	// Explicit demotion -> Ok
+
+----------------
+
+C Type Reinterpretation
+
+float	a = 420.042f;
+
+void *	b = &a;			// Implicit reinterpretation cast
+void *	c = (void *)&a;	// Implicit reinterpretation cast
+
+void *	d = &a			// Implicit promotion -> Ok
+int *	e = d;			// Implicit demotion -> Hazardeous !
+int *	f = (int *) d;	// Explicit demotion -> Ok
+
+----------------
+
+C Type Qualifier Reinterpretation
+
+int			a = 42;
+
+int const *	b = &a;					// Implicit type qualifier cast
+int const * c = (int const *) &a;	// Explicit type qualifier cast
+
+int const * d = &a;					// Implicit promotion -> Ok
+int *		e = d;					// Implicit demotion -> Hell no !
+int *		f = (int *) d;			// Explicit demotion -> Ok
+
+---------------
+
+Upcast and Downcast
+
+class Parent				{};
+class Child1: public Parent {};
+class Child2: public Parent {};
+
+Child1		a;
+
+Parent *	b = &a;				// Implicit 'reinterpretation' cast
+Parent *	c = (Parent *)&a;	// Explicit 'reinterpretation' cast
+
+Parent *	d = &a;				// Implicit upcast -> Ok
+Child1 *	e = d;				// Implicit downcast -> Hell no !
+Child2 *	f = (Child2 *) d;	// Explicit downcast -> Ok, but really ?
+
+---------------
+
+Static cast, checked at compilation
+
+int		a = 42;
+
+double	b = a;					// Implicit promotion -> Ok
+int		c = b;					// Implicit demotion -> Hell no !
+int		d = static_cast<int>(b)	// Explicit demotion -> Ok
+
+
+class Parent				{};
+class Child1: public Parent {};
+class Child2: public Parent {};
+
+class Unrelated				{};;
+
+Child1		a;
+Parent *	b = &a;							// Implicit upcast -> Ok
+Child1 *	c = b;							// Implicit downcast -> Hell no !
+Child2 *	d = static_cast<Child2 *>(b)	// Explicit downcast -> Ok
+
+Unrelated *	e = static_cast(Unrelated *>(&a);	// Explicit conversion -> No ! 
+
+---------------
+
+Dynamic cast, checked at runtime. Check whether cast is succesfull yourself
+
+Include typeinfo, exception
+
+class Parent				{ public: virtual ~Parent( void ) {} };
+Class Child1: public Parent {};
+Class Child2: public Parent {};
+
+int		main( void ) {
+
+	Child1		a;
+	Parent *	b = &a;
+
+	// Explicit downcast, will succeed
+	Child1 *	c = dynamic_cast<Child *>(b);
+	if ( c == NULL )
+		std::cout << "Conversion is NOT Ok" << std::endl;
+	else
+		std::cout << "Conversion is Ok" << std::endl;
+	
+	// Explicit downcast, will fail
+	try {
+		Child2 &	d = dynamic_cast<Child2 &>(*b);
+		std::cout << "Conversion is Ok" << std::endl;
+	}
+	catch ( std::bad_cast &bc ) {
+		std::cout << "Conversion is NOT Ok: " << bc.what() << std::endl;
+		return 0;
+	}
+	return 0;
+}
+
+---------------
+
+Reinterpret cast
+
+float	a = 420.042f;
+
+void *	b = &a;							// Implicit promotion -> Ok
+int *	c = reinterpret_cast<int *>(b);	// Explicit demotion -> Ok
+int &	d = reinterpret_cast<int &>(b); // Explicit demotion -> Ok
+
+---------------
+
+Const cast, shouldnt need to use (bad practice)
+
+int		a = 42;
+
+int const * b = &a;						// Implicit promotion -> Ok
+int *		c = b;						// Implicit demotion -> Hell no !
+int *		d = const_cast<int *>(b);	// Explicit demotion -> Ok, I obey
+
+---------------
+
+Cast operators
+
+class Foo {
+
+public:
+
+	Foo ( float const v ) : _v( v ) { }
+
+	float	getV( void )			{ return this->_v; }
+
+	operator float()				{ return this->_v; }
+	operator int()					{ return static_cast<int>( this->_v ); }
+
+private:
+
+	float	_v;
+};
+
+int		main() {
+
+	Foo		a( 420.024f );
+	float	b	= a;
+	int		c	= a;
+
+	std::cout << a.getV() << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+
+	return 0;
+}
+Output:
+	420.024
+	420.024
+	420;
+
+---------------
+
+Explicit keyword
+
+class A {};
+class B {};
+
+class C {
+
+public:
+				C( A const & _ )	{ return; }
+	explicit	C( B const & _ )	( return; )
+
+};
+
+void	f( C const & _ ) {
+
+	return;
+}
+
+int		main () {
+
+	f( A() );	// Implicit conversion OK
+	f( B() );	// Implicit conversion NOT OK, constructor is explicit
+
+	return 0;
+}
+
