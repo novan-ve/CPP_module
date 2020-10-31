@@ -6,7 +6,7 @@
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 18:01:36 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/27 18:01:37 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/10/31 09:13:44 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 	file <<	"             |||"					<< std::endl;
 	file <<	"       , -=-~  .-^- _"				<< std::endl;
 
+	file.close();
 }
 
 ShrubberyCreationForm::FileFailedException::FileFailedException() {}
