@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Serialize.hpp"
+#include <stdlib.h>
 #include <iostream>
 
 void *	serialize( void ) {
@@ -21,20 +22,46 @@ void *	serialize( void ) {
 	srand( time( NULL ) );
 
 	for ( int i = 0; i < 8; i++ ) {
-		tmp->s1->append( alpha[ rand() % 62 ] );
+		tmp->s1.push_back( alpha[ rand() % 62 ] );
+		tmp->s2.push_back( alpha[ rand() % 62 ] );
 	}
 
-	return NULL;
+	tmp->n = rand();
+
+//	std::cout << "Before serialization:" << std::endl;
+//	std::cout << "s1: \t" << tmp->s1 << std::endl;
+//	std::cout << "n: \t" << tmp->n << std::endl;
+//	std::cout << "s2: \t" << tmp->s2 << std::endl << std::endl;
+
+	return reinterpret_cast< void * >( tmp );
 }
 
-//Data *	deserialize( void * raw ) {
+Data *	deserialize( void * raw ) {
 
+	Data *	data;
+	Data *	ret = new Data();
 
-//}
+	data = reinterpret_cast< Data * >( raw );
+
+	ret->s1 = data->s1;
+	ret->n = data->n;
+	ret->s2 = data->s2;
+
+	return ret;
+}
 
 int 	main() {
 
-	serialize();
+	void *	raw = serialize();
+	Data *	data = deserialize( raw );
+
+	std::cout << "After deserialization:" << std::endl;
+	std::cout << "s1: \t" << data->s1 << std::endl;
+	std::cout << "n: \t" << data->n << std::endl;
+	std::cout << "s2: \t" << data->s2 << std::endl;
+
+	delete reinterpret_cast< Data * >( raw );
+	delete data;
 
 	return 0;
 }

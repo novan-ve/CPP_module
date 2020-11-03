@@ -95,7 +95,7 @@ class Parent				{};
 class Child1: public Parent {};
 class Child2: public Parent {};
 
-class Unrelated				{};;
+class Unrelated				{};
 
 Child1		a;
 Parent *	b = &a;							// Implicit upcast -> Ok
