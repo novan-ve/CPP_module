@@ -6,7 +6,7 @@
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 15:44:21 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/11/03 15:44:22 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/11/04 12:49:51 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,6 @@ int 	main() {
 
 		delete ptr;
 	}
-
+	
 	return 0;
 }
