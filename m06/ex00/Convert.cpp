@@ -6,11 +6,12 @@
 /*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/31 10:53:02 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/31 10:53:03 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/11/04 12:40:27 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
+#include <string>
 
 Convert::Convert( const std::string & arg ) : _arg( arg ) {}
 
@@ -131,3 +132,4 @@ double 		Convert::toDouble() const {
 		throw( "inf" );
 	}
 }
+

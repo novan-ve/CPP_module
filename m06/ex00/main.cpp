@@ -6,7 +6,7 @@
 /*   By: novan-ve <novan-ve@student.codam.n>          +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/31 09:26:23 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/10/31 09:26:24 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/11/04 12:37:21 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int 	main( int ac, char **av ) {
 	catch ( const char *s ) {
 		std::cout << "Double: " << s << std::endl;
 	}
+
+	system("leaks a.out");
 
 	return 0;
 }
