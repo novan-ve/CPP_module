@@ -6,7 +6,7 @@
 /*   By: novan-ve <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/05 14:04:31 by novan-ve      #+#    #+#                 */
-/*   Updated: 2020/11/05 14:04:32 by novan-ve      ########   odam.nl         */
+/*   Updated: 2020/11/05 15:11:30 by novan-ve      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,6 @@ int 	main() {
 	str[1] = "world";
 
 	std::cout << std::endl << str[0] << " " << str[1] << std::endl;
-
+	
 	return 0;
 }
