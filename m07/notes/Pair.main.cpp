@@ -16,3 +16,12 @@ int		main( void ) {
 
 	return 0;
 }
+
+//Int partial specialization
+//Generic template
+//Generic template
+//Bool/bool specialization
+//Pair( 4, 2 )
+//Pair( Pi, 3.14 )
+//Pair( 4.2, 1 )
+//Pair( true, false )
