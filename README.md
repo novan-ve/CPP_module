@@ -1,7 +1,7 @@
 # CPP_module
 The CPP module at Codam, an introduction to C++
 
-## M00
+##M00:##
   - Namespaces
   - Stdio streams
   - Class and instance
@@ -13,29 +13,29 @@ The CPP module at Codam, an introduction to C++
   - Non member attributes and non member functions
   - Pointers to members
 
-## M01
+##M01:##
   - Heap and stack allocation
   - References
   - Filestreams
 
-## M02
+##M02:##
   - Ad-hoc polymorphism
   - Operator overloads
   - Canonical form
 
-## M03
+##M03:##
   - Inheritance
 
-## M04
+##M04:##
   - Sub-typing polymorphism
   - Abstract classes
   - Interfaces
 
-## M05
+##M05:##
   - Nested classes
   - Exceptions
 
-## M06
+##M06:##
   - Upcast and downcasts
   - Static casts
   - Dynamic casts
@@ -44,10 +44,10 @@ The CPP module at Codam, an introduction to C++
   - Cast operators
   - Explicit keyword
 
-## M07
+##M07:##
   - Templates
   - Default type
   - Specialization
 
-## M08
+##M08:##
   - STL
